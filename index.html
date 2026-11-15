@@ -143,12 +143,12 @@ const $=s=>document.querySelector(s);
 const LOGO=document.querySelector('.brand img').src;
 /* All 12 questions from "Test your knowledge – Green Lab". Each round asks 10 of them. */
 const BANK=[
- {t:'tf',q:'Sustainability focuses only on the environment.',a:false,why:'Sustainability has three pillars: environmental, social and economic.'},
- {t:'tf',q:'Saving water and energy makes labs more sustainable.',a:true,why:'Water and energy are two of the biggest footprints of a laboratory.'},
- {t:'tf',q:'My Green Lab is a non-profit organization.',a:true,why:'My Green Lab is a non-profit that promotes sustainability in science.'},
- {t:'tf',q:'Digitalization helps reduce paper waste.',a:true,why:'Digital records and reports replace printing.'},
- {t:'tf',q:'All lab members play a role in sustainability.',a:true,why:'Everyone in the lab makes daily choices that add up.'},
- {t:'tf',q:'Closing the fume hood sash saves energy.',a:true,why:'A closed sash reduces the air the building has to heat or cool.'},
+ {t:'tf',q:'Sustainability focuses only on the environment.',a:false},
+ {t:'tf',q:'Saving water and energy makes labs more sustainable.',a:true},
+ {t:'tf',q:'My Green Lab is a non-profit organization.',a:true},
+ {t:'tf',q:'Digitalization helps reduce paper waste.',a:true},
+ {t:'tf',q:'All lab members play a role in sustainability.',a:true},
+ {t:'tf',q:'Closing the fume hood sash saves energy.',a:true},
  {t:'mc',q:'What are the three pillars of sustainability?',o:['Health, Science, Technology','Environmental, Social, Economic','Energy, Water, Waste'],a:1},
  {t:'mc',q:"What is My Green Lab's main goal?",o:['Promote sustainability in science','Increase laboratory testing','Reduce staff'],a:0},
  {t:'mc',q:'Which helps reduce laboratory waste?',o:['More printing','Better workflows','More plastic use'],a:1},
@@ -186,7 +186,7 @@ function answer(btn,val){
   if(!ok)btn.classList.add('wrong');else score++;
   const correct=q.t==='tf'?(q.a?'True':'False'):'ABC'[q.a]+'. '+q.o[q.a];
   const fb=$('#qFb');fb.className='feedback '+(ok?'ok':'no');
-  fb.textContent=(ok?'Correct! ':'Not quite. The answer is: '+correct+'. ')+(q.why||'');
+  fb.textContent=ok?'Correct!':'Not quite. The answer is: '+correct+'.';
   $('#qScore').textContent=score+' ✓';$('#qProg').style.width=((i+1)/N*100)+'%';
   const nb=$('#nextBtn');nb.hidden=false;nb.textContent=i===N-1?'See my result':'Next question';
   try{navigator.vibrate&&navigator.vibrate(ok?20:[30,40,30])}catch(e){}
