@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#fbf8ee">
-<title>Lab Inspector Challenge</title>
-<meta name="description" content="Spot the 10 mistakes. Fix them. Make your lab greener! A 2-minute Green Lab quiz from the Kuwait Association of Medical Laboratories, with a certificate at the end.">
+<title>Test Your Knowledge</title>
+<meta name="description" content="How much do you know about green labs? A 2-minute Green Lab quiz from the Kuwait Association of Medical Laboratories, with a certificate at the end.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://q8hitman.github.io/kaml-lab-inspector/">
-<meta property="og:title" content="Lab Inspector Challenge">
-<meta property="og:description" content="Spot the 10 mistakes. Fix them. Make your lab greener! 10 questions, about 2 minutes, certificate at the end.">
+<meta property="og:title" content="Test Your Knowledge">
+<meta property="og:description" content="How much do you know about green labs? 10 questions, about 2 minutes, certificate at the end.">
 <meta property="og:image" content="https://q8hitman.github.io/kaml-lab-inspector/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -228,9 +228,9 @@ html[dir="rtl"] #qStamp{right:auto;left:1.4rem;--r:8deg}
 
       <!-- START -->
       <section class="screen on" id="sStart">
-        <div class="doc-head"><b data-t="docHead">Green Lab inspection</b><span id="today"></span></div>
-        <h1 data-t="h1">Lab Inspector <em class="sweep">Challenge</em></h1>
-        <p class="lead" data-t="lead">Spot the 10 mistakes. Fix them. Make your lab greener!</p>
+        <div class="doc-head"><b data-t="docHead">Green Lab quiz</b><span id="today"></span></div>
+        <h1 data-t="h1">Test Your <em class="sweep">Knowledge</em></h1>
+        <p class="lead" data-t="lead">How much do you know about green labs? Answer 10 quick questions and find out.</p>
         <ul class="check">
           <li data-t="c1">10 questions</li>
           <li data-t="c2">About 2 minutes</li>
@@ -254,7 +254,7 @@ html[dir="rtl"] #qStamp{right:auto;left:1.4rem;--r:8deg}
         <div class="res-top">
           <p data-t="yourScore">Your score</p>
           <div class="big"><span id="rScore">0</span><small>/10</small></div>
-          <div class="stamp ok" id="rStamp" aria-hidden="true">Inspected</div>
+          <div class="stamp ok" id="rStamp" aria-hidden="true">Completed</div>
           <h2 id="rTitle">Well done!</h2>
           <p id="rText"></p>
         </div>
@@ -274,7 +274,7 @@ html[dir="rtl"] #qStamp{right:auto;left:1.4rem;--r:8deg}
     </div>
 
     <!-- action buttons sit on the clipboard, under the sheet -->
-    <button class="btn primary pulse" id="startBtn" type="button" data-for="sStart" data-t="start">Start the inspection</button>
+    <button class="btn primary pulse" id="startBtn" type="button" data-for="sStart" data-t="start">Start the quiz</button>
     <button class="btn primary" id="nextBtn" type="button" data-for="sQuiz" hidden>Next question</button>
     <div class="btns" data-for="sResult" hidden>
       <button class="btn primary" id="certBtn" type="button" disabled>Get my certificate</button>
@@ -295,7 +295,7 @@ html[dir="rtl"] #qStamp{right:auto;left:1.4rem;--r:8deg}
 <script>
 (function(){
 const $=s=>document.querySelector(s);
-const CERTBG='certificate-bg.webp';
+const CERTBG='certificate-bg.webp?v=2';
 /* All 12 questions from "Test your knowledge – Green Lab". Each round asks 10 of them. */
 const BANK=[
  {t:'tf',a:false,q:'Sustainability focuses only on the environment.',qa:'الاستدامة تركّز على البيئة فقط.'},
@@ -319,22 +319,22 @@ const BANK=[
 ];
 const N=10;
 const TX={
- en:{docHead:'Green Lab inspection',h1:'Lab Inspector <em class="sweep">Challenge</em>',lead:'Spot the 10 mistakes. Fix them. Make your lab greener!',
-   c1:'10 questions',c2:'About 2 minutes',c3:'Your certificate at the end',start:'Start the inspection',next:'Next question',seeResult:'See my result',
+ en:{docHead:'Green Lab quiz',h1:'Test Your <em class="sweep">Knowledge</em>',lead:'How much do you know about green labs? Answer 10 quick questions and find out.',
+   c1:'10 questions',c2:'About 2 minutes',c3:'Your certificate at the end',start:'Start the quiz',next:'Next question',seeResult:'See my result',
    qOf:n=>`Question <b>${n}</b> of ${N}`,tf:'True or false',mc:'Choose one',T:'True',F:'False',keys:'ABC',answerIs:'The answer is ',
-   correct:'Correct',missed:'Missed',inspected:'Inspected',yourScore:'Your score',nameLabel:'Your name for the certificate',namePh:'e.g. Sara Al-Ali…',
+   correct:'Correct',missed:'Missed',inspected:'Completed',yourScore:'Your score',nameLabel:'Your name for the certificate',namePh:'e.g. Sara Al-Ali…',
    getCert:'Get my certificate',making:'Making your certificate…',again:'Try again',certTitle:'Your certificate',certSub:'Save it to your phone or send it to someone.',
    hint:'If Save does not work, press and hold the certificate to save it.',save:'Save',share:'Share',home:'Back to start',foot:'Green Lab, KAML',
    sndOff:'Turn sound off',sndOn:'Turn sound on',certAlt:'Your certificate',locale:'en-GB',
-   res:[['Lab Inspector Expert!','Outstanding. Your lab is in green hands.'],['Great job!','You know how to make a lab greener.'],['Good effort!','A few more green habits and you are there.'],['Keep learning!','Every green step counts. Try again.']]},
- ar:{docHead:'فحص المختبر الأخضر',h1:'تحدّي <em class="sweep">مفتّش المختبر</em>',lead:'اكتشف الأخطاء العشرة. صحّحها. واجعل مختبرك أكثر استدامة!',
-   c1:'10 أسئلة',c2:'حوالي دقيقتين',c3:'شهادتك في النهاية',start:'ابدأ الفحص',next:'السؤال التالي',seeResult:'اعرض نتيجتي',
+   res:[['Green Lab Expert!','Outstanding. Your lab is in green hands.'],['Great job!','You know how to make a lab greener.'],['Good effort!','A few more green habits and you are there.'],['Keep learning!','Every green step counts. Try again.']]},
+ ar:{docHead:'اختبار المختبر الأخضر',h1:'اختبر <em class="sweep">معلوماتك</em>',lead:'ما مدى معرفتك بالمختبر الأخضر؟ أجب عن 10 أسئلة سريعة واكتشف.',
+   c1:'10 أسئلة',c2:'حوالي دقيقتين',c3:'شهادتك في النهاية',start:'ابدأ الاختبار',next:'السؤال التالي',seeResult:'اعرض نتيجتي',
    qOf:n=>`السؤال <b>${n}</b> من ${N}`,tf:'صح أم خطأ',mc:'اختر إجابة واحدة',T:'صح',F:'خطأ',keys:'أبج',answerIs:'الإجابة الصحيحة: ',
-   correct:'صحيح',missed:'خطأ',inspected:'تم الفحص',yourScore:'نتيجتك',nameLabel:'اسمك كما سيظهر في الشهادة',namePh:'مثال: سارة العلي…',
+   correct:'صحيح',missed:'خطأ',inspected:'مكتمل',yourScore:'نتيجتك',nameLabel:'اسمك كما سيظهر في الشهادة',namePh:'مثال: سارة العلي…',
    getCert:'احصل على شهادتي',making:'جارٍ تجهيز شهادتك…',again:'حاول مرة أخرى',certTitle:'شهادتك',certSub:'احفظها في هاتفك أو أرسلها لمن تريد.',
    hint:'إذا لم يعمل زر الحفظ، اضغط مطوّلًا على الشهادة لحفظها.',save:'حفظ',share:'مشاركة',home:'العودة إلى البداية',foot:'المختبر الأخضر، KAML',
    sndOff:'إيقاف الصوت',sndOn:'تشغيل الصوت',certAlt:'شهادتك',locale:'ar-KW',
-   res:[['خبير في فحص المختبر!','أداء رائع. مختبرك في أيدٍ خضراء.'],['عمل رائع!','تعرف كيف تجعل المختبر أكثر استدامة.'],['محاولة جيدة!','بعض العادات الخضراء الإضافية وتصل.'],['واصل التعلّم!','كل خطوة خضراء لها أثر. حاول مرة أخرى.']]}
+   res:[['خبير المختبر الأخضر!','أداء رائع. مختبرك في أيدٍ خضراء.'],['عمل رائع!','تعرف كيف تجعل المختبر أكثر استدامة.'],['محاولة جيدة!','بعض العادات الخضراء الإضافية وتصل.'],['واصل التعلّم!','كل خطوة خضراء لها أثر. حاول مرة أخرى.']]}
 };
 let LANG='en';
 try{if(localStorage.getItem('kaml-inspector-lang')==='ar')LANG='ar'}catch(e){}
@@ -516,7 +516,7 @@ $('#againBtn').onclick=start;$('#startBtn').onclick=start;$('#homeBtn').onclick=
 $('#saveBtn').onclick=()=>{const a=document.createElement('a');a.href=certURL;a.download='Sustainability-Champion-Certificate.jpg';document.body.appendChild(a);a.click();a.remove()};
 $('#shareBtn').onclick=async()=>{
   try{const blob=await (await fetch(certURL)).blob();const file=new File([blob],'Sustainability-Champion-Certificate.jpg',{type:'image/jpeg'});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Lab Inspector Challenge'});return}}catch(e){}
+    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Test Your Knowledge'});return}}catch(e){}
   $('#saveBtn').click();
 };
 if(!navigator.share)$('#shareBtn').hidden=true;
@@ -529,17 +529,18 @@ async function drawCert(name,sc){
   const D='"Bricolage Grotesque", "Alexandria", Arial';
   try{await Promise.all([document.fonts.load('800 40px "Bricolage Grotesque"'),document.fonts.load('600 20px "Bricolage Grotesque"'),LANG==='ar'||/[\u0600-\u06FF]/.test(name)?(loadArabicFont(),document.fonts.load('800 40px Alexandria','سارة')):0])}catch(e){}
   const bg=await (window._bg||loadImg(CERTBG)),W=bg.naturalWidth,H=bg.naturalHeight,c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');
-  g.drawImage(bg,0,0);g.direction='ltr';g.textAlign='center';g.fillStyle='#0e3b23';
+  g.drawImage(bg,0,0);g.direction='ltr';g.textAlign='center';g.fillStyle='#044047';
   const fit=(txt,font,size,max,min)=>{let f=size;g.font=font(f);while(g.measureText(txt).width>max&&f>min){f-=2;g.font=font(f)}return f};
-  // full name on the line
-  fit(name,f=>`800 ${f}px ${D}`,74,790,34);g.fillText(name,W/2,546);
-  // pledge in the pill, with the first name
-  const first=name.split(/\s+/)[0];
-  fit(`I, ${first}, choose to make`,f=>`italic 800 ${f}px ${D}`,50,700,30);g.fillText(`I, ${first}, choose to make`,W/2,670);
-  g.font=`italic 800 50px ${D}`;g.fillText('my lab more sustainable!',W/2,726);
-  // date in the box
-  g.textAlign='left';g.font=`700 25px ${D}`;
-  g.fillText(new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric'}).format(new Date()),1300,937);
+  // full name above the line
+  fit(name,f=>`800 ${f}px ${D}`,80,860,34);g.fillText(name,W/2,/[؀-ۿ]/.test(name)?530:548);
+  // pledge in the green pill: "I, <first name>," in italic, the rest upright (as in the original design)
+  const first=name.split(/\s+/)[0],a=`I, ${first},`,b=' choose to make';g.fillStyle='#08462c';
+  const it=s=>`italic 800 ${s}px ${D}`,up=s=>`800 ${s}px ${D}`;
+  const wOf=s=>{g.font=it(s);const x=g.measureText(a).width;g.font=up(s);return x+g.measureText(b).width};
+  let f=50;while(wOf(f)>800&&f>30)f-=2;
+  g.font=it(f);const wa=g.measureText(a).width,x0=W/2-wOf(f)/2;g.textAlign='left';
+  g.font=it(f);g.fillText(a,x0,681);g.font=up(f);g.fillText(b,x0+wa,681);
+  g.textAlign='center';g.font=up(50);g.fillText('my lab more sustainable!',W/2,735);
   return c.toDataURL('image/jpeg',.92);
 }
 })();
