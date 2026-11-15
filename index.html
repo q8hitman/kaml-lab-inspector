@@ -162,7 +162,7 @@ html{touch-action:manipulation}
 h1,.q,.res-top h2,.cert-title{text-wrap:balance}
 .big,.marks i,.meta{font-variant-numeric:tabular-nums}
 .brand{position:relative}
-.snd{margin-inline-start:auto;flex:none;width:2.6rem;height:2.6rem;border-radius:50%;border:2px solid var(--ink);background:var(--paper);display:grid;place-items:center;cursor:pointer;box-shadow:0 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+.snd{flex:none;width:2.6rem;height:2.6rem;border-radius:50%;border:2px solid var(--ink);background:var(--paper);display:grid;place-items:center;cursor:pointer;box-shadow:0 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
 .snd:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
 .snd svg{width:1.25rem;height:1.25rem}
 .snd .off{display:none}.snd[aria-pressed="false"] .on{display:none}.snd[aria-pressed="false"] .off{display:block}
@@ -184,6 +184,30 @@ h1 em.sweep{animation:sweep .55s .55s cubic-bezier(.6,0,.3,1) forwards}
 .certwrap.reveal{animation:reveal .7s cubic-bezier(.2,1.2,.4,1) both}
 @keyframes reveal{from{opacity:0;transform:translateY(30px) rotate(4deg) scale(.92)}}
 
+/* language switch + Arabic */
+.lang{margin-inline-start:auto;flex:none;min-width:3.6rem;height:2.6rem;padding:0 .9rem;border-radius:1.3rem;border:2px solid var(--ink);background:var(--paper);font-family:"Alexandria","Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;box-shadow:0 3px 0 var(--ink);transition:transform .1s,box-shadow .1s}
+.lang:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
+.lang:lang(en){font-family:var(--d)}
+html[lang="ar"]{--d:"Bricolage Grotesque","Alexandria",system-ui,sans-serif;--t:"Bricolage Grotesque","Alexandria",system-ui,sans-serif}
+html[lang="ar"] h1,html[lang="ar"] .q,html[lang="ar"] .big,html[lang="ar"] .cert-title{letter-spacing:0}
+html[lang="ar"] h1{line-height:1.2;font-size:clamp(2.1rem,10vw,2.8rem)}
+/* compact header so the two buttons fit beside the name */
+.brand{gap:.55rem}
+.brand>div{min-width:0;flex:1}
+.brand b{font-size:.82rem}
+.brand small{font-size:.74rem;display:block}
+.lang{min-width:0;height:2.35rem;padding:0 .7rem;font-size:.85rem}
+.snd{width:2.35rem;height:2.35rem}
+html[lang="ar"] .brand b{display:none}
+html[lang="ar"] .brand small{font-family:var(--d);font-weight:700;font-size:.9rem;color:var(--ink)}
+html[lang="ar"] .q{line-height:1.45}
+html[lang="ar"] .stamp{letter-spacing:0;text-transform:none;padding:.05em .45em .12em}
+html[lang="ar"] .lead,html[lang="ar"] .check li,html[lang="ar"] .opt{line-height:1.6}
+html[dir="rtl"] h1 em{background-position:100% 82%}
+html[dir="rtl"] #qStamp{right:auto;left:1.4rem;--r:8deg}
+.stamp.shown{opacity:.92;transform:rotate(var(--r))}
+.big{direction:ltr;unicode-bidi:isolate}
+
 /* screen-level entrance: only the sheet content, once per screen */
 .screen.on{animation:in .3s ease-out}
 @keyframes in{from{opacity:0}}
@@ -194,6 +218,7 @@ h1 em.sweep{animation:sweep .55s .55s cubic-bezier(.6,0,.3,1) forwards}
 <div class="leaf a" aria-hidden="true"></div><div class="leaf b" aria-hidden="true"></div><div class="leaf c" aria-hidden="true"></div>
 <div class="app">
   <div class="brand"><img src="data:image/webp;base64,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" alt="KAML logo" width="46" height="46"><div><b translate="no">Kuwait Association of Medical Laboratories</b><small lang="ar" dir="rtl">الجمعية الكويتية للمختبرات الطبية</small></div>
+    <button class="lang" id="langBtn" type="button" lang="ar" aria-label="التبديل إلى العربية">عربي</button>
     <button class="snd" id="sndBtn" type="button" aria-pressed="true" aria-label="Sound"><svg class="on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><svg class="off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
   </div>
 
@@ -203,13 +228,13 @@ h1 em.sweep{animation:sweep .55s .55s cubic-bezier(.6,0,.3,1) forwards}
 
       <!-- START -->
       <section class="screen on" id="sStart">
-        <div class="doc-head"><b>Green Lab inspection</b><span id="today"></span></div>
-        <h1>Lab Inspector <em class="sweep">Challenge</em></h1>
-        <p class="lead">Spot the 10 mistakes. Fix them. Make your lab greener!</p>
+        <div class="doc-head"><b data-t="docHead">Green Lab inspection</b><span id="today"></span></div>
+        <h1 data-t="h1">Lab Inspector <em class="sweep">Challenge</em></h1>
+        <p class="lead" data-t="lead">Spot the 10 mistakes. Fix them. Make your lab greener!</p>
         <ul class="check">
-          <li>10 questions</li>
-          <li>About 2 minutes</li>
-          <li>Your certificate at the end</li>
+          <li data-t="c1">10 questions</li>
+          <li data-t="c2">About 2 minutes</li>
+          <li data-t="c3">Your certificate at the end</li>
         </ul>
         <div class="spacer"></div>
       </section>
@@ -227,43 +252,43 @@ h1 em.sweep{animation:sweep .55s .55s cubic-bezier(.6,0,.3,1) forwards}
       <!-- RESULT -->
       <section class="screen" id="sResult">
         <div class="res-top">
-          <p>Your score</p>
+          <p data-t="yourScore">Your score</p>
           <div class="big"><span id="rScore">0</span><small>/10</small></div>
           <div class="stamp ok" id="rStamp" aria-hidden="true">Inspected</div>
           <h2 id="rTitle">Well done!</h2>
           <p id="rText"></p>
         </div>
         <div class="marks" id="rMarks" aria-hidden="true"></div>
-        <div class="sign"><label for="name">Your name for the certificate</label><input id="name" name="name" maxlength="40" autocomplete="name" autocapitalize="words" spellcheck="false" enterkeyhint="done" placeholder="e.g. Sara Al-Ali…"></div>
+        <div class="sign"><label for="name" data-t="nameLabel">Your name for the certificate</label><input id="name" name="name" maxlength="40" autocomplete="name" autocapitalize="words" spellcheck="false" enterkeyhint="done" placeholder="e.g. Sara Al-Ali…" data-tp="namePh"></div>
         <div class="spacer"></div>
       </section>
 
       <!-- CERTIFICATE -->
       <section class="screen" id="sCert">
-        <h2 class="cert-title">Your certificate</h2>
-        <p class="cert-sub">Save it to your phone or send it to someone.</p>
+        <h2 class="cert-title" data-t="certTitle">Your certificate</h2>
+        <p class="cert-sub" data-t="certSub">Save it to your phone or send it to someone.</p>
         <div class="certwrap" id="certWrap"><img id="certImg" alt="Your certificate" width="1536" height="1024"></div>
-        <p class="hint">If Save does not work, press and hold the certificate to save it.</p>
+        <p class="hint" data-t="hint">If Save does not work, press and hold the certificate to save it.</p>
         <div class="spacer"></div>
       </section>
     </div>
 
     <!-- action buttons sit on the clipboard, under the sheet -->
-    <button class="btn primary pulse" id="startBtn" type="button" data-for="sStart">Start the inspection</button>
+    <button class="btn primary pulse" id="startBtn" type="button" data-for="sStart" data-t="start">Start the inspection</button>
     <button class="btn primary" id="nextBtn" type="button" data-for="sQuiz" hidden>Next question</button>
     <div class="btns" data-for="sResult" hidden>
       <button class="btn primary" id="certBtn" type="button" disabled>Get my certificate</button>
-      <button class="btn ghost" id="againBtn" type="button">Try again</button>
+      <button class="btn ghost" id="againBtn" type="button" data-t="again">Try again</button>
     </div>
     <div class="btns" data-for="sCert" hidden>
       <div class="row">
-        <button class="btn primary" id="saveBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Save</button>
-        <button class="btn" id="shareBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.5 8.5L12 4l4.5 4.5M5 13v6h14v-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Share</button>
+        <button class="btn primary" id="saveBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-t="save">Save</span></button>
+        <button class="btn" id="shareBtn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.5 8.5L12 4l4.5 4.5M5 13v6h14v-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-t="share">Share</span></button>
       </div>
-      <button class="btn ghost" id="homeBtn" type="button">Back to start</button>
+      <button class="btn ghost" id="homeBtn" type="button" data-t="home">Back to start</button>
     </div>
   </div>
-  <p class="foot">Green Lab, KAML</p>
+  <p class="foot" data-t="foot">Green Lab, KAML</p>
 </div>
 <canvas id="fx" aria-hidden="true"></canvas>
 
@@ -273,44 +298,68 @@ const $=s=>document.querySelector(s);
 const CERTBG='certificate-bg.webp';
 /* All 12 questions from "Test your knowledge – Green Lab". Each round asks 10 of them. */
 const BANK=[
- {t:'tf',q:'Sustainability focuses only on the environment.',a:false},
- {t:'tf',q:'Saving water and energy makes labs more sustainable.',a:true},
- {t:'tf',q:'My Green Lab is a non-profit organization.',a:true},
- {t:'tf',q:'Digitalization helps reduce paper waste.',a:true},
- {t:'tf',q:'All lab members play a role in sustainability.',a:true},
- {t:'tf',q:'Closing the fume hood sash saves energy.',a:true},
- {t:'mc',q:'What are the three pillars of sustainability?',o:['Health, Science, Technology','Environmental, Social, Economic','Energy, Water, Waste'],a:1},
- {t:'mc',q:"What is My Green Lab's main goal?",o:['Promote sustainability in science','Increase laboratory testing','Reduce staff'],a:0},
- {t:'mc',q:'Which helps reduce laboratory waste?',o:['More printing','Better workflows','More plastic use'],a:1},
- {t:'mc',q:'Which is a sustainability strategy?',o:['Digitization','More paperwork','More energy use'],a:0},
- {t:'mc',q:"What is Roche's target year for real-zero emissions?",o:['2030','2040','2050'],a:2},
- {t:'mc',q:'What does My Green Lab Certification assess?',o:['Staff performance','Laboratory sustainability','Test accuracy'],a:1}
+ {t:'tf',a:false,q:'Sustainability focuses only on the environment.',qa:'الاستدامة تركّز على البيئة فقط.'},
+ {t:'tf',a:true,q:'Saving water and energy makes labs more sustainable.',qa:'توفير الماء والطاقة يجعل المختبرات أكثر استدامة.'},
+ {t:'tf',a:true,q:'My Green Lab is a non-profit organization.',qa:'My Green Lab منظمة غير ربحية.'},
+ {t:'tf',a:true,q:'Digitalization helps reduce paper waste.',qa:'التحوّل الرقمي يساعد على تقليل هدر الورق.'},
+ {t:'tf',a:true,q:'All lab members play a role in sustainability.',qa:'لكل العاملين في المختبر دور في الاستدامة.'},
+ {t:'tf',a:true,q:'Closing the fume hood sash saves energy.',qa:'إغلاق واجهة خزانة الأبخرة (Fume hood) يوفّر الطاقة.'},
+ {t:'mc',a:1,q:'What are the three pillars of sustainability?',o:['Health, Science, Technology','Environmental, Social, Economic','Energy, Water, Waste'],
+   qa:'ما هي ركائز الاستدامة الثلاث؟',oa:['الصحة، العلوم، التكنولوجيا','البيئية، الاجتماعية، الاقتصادية','الطاقة، المياه، النفايات']},
+ {t:'mc',a:0,q:"What is My Green Lab's main goal?",o:['Promote sustainability in science','Increase laboratory testing','Reduce staff'],
+   qa:'ما الهدف الرئيسي لمنظمة My Green Lab؟',oa:['تعزيز الاستدامة في العلوم','زيادة الفحوصات المخبرية','تقليل عدد الموظفين']},
+ {t:'mc',a:1,q:'Which helps reduce laboratory waste?',o:['More printing','Better workflows','More plastic use'],
+   qa:'أيّ مما يلي يساعد على تقليل نفايات المختبر؟',oa:['طباعة أكثر','تحسين سير العمل','استخدام بلاستيك أكثر']},
+ {t:'mc',a:0,q:'Which is a sustainability strategy?',o:['Digitization','More paperwork','More energy use'],
+   qa:'أيّ مما يلي يُعدّ استراتيجية للاستدامة؟',oa:['التحوّل الرقمي','أوراق أكثر','استهلاك طاقة أكثر']},
+ {t:'mc',a:2,q:"What is Roche's target year for real-zero emissions?",o:['2030','2040','2050'],
+   qa:'ما العام الذي حددته شركة Roche للوصول إلى صفر انبعاثات فعلي؟',oa:['2030','2040','2050']},
+ {t:'mc',a:1,q:'What does My Green Lab Certification assess?',o:['Staff performance','Laboratory sustainability','Test accuracy'],
+   qa:'ماذا تقيّم شهادة My Green Lab؟',oa:['أداء الموظفين','استدامة المختبر','دقة الفحوصات']}
 ];
 const N=10;
-let round=[],marks=[],i=0,score=0,certURL='';
-const today=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-$('#today').textContent=today;
+const TX={
+ en:{docHead:'Green Lab inspection',h1:'Lab Inspector <em class="sweep">Challenge</em>',lead:'Spot the 10 mistakes. Fix them. Make your lab greener!',
+   c1:'10 questions',c2:'About 2 minutes',c3:'Your certificate at the end',start:'Start the inspection',next:'Next question',seeResult:'See my result',
+   qOf:n=>`Question <b>${n}</b> of ${N}`,tf:'True or false',mc:'Choose one',T:'True',F:'False',keys:'ABC',answerIs:'The answer is ',
+   correct:'Correct',missed:'Missed',inspected:'Inspected',yourScore:'Your score',nameLabel:'Your name for the certificate',namePh:'e.g. Sara Al-Ali…',
+   getCert:'Get my certificate',making:'Making your certificate…',again:'Try again',certTitle:'Your certificate',certSub:'Save it to your phone or send it to someone.',
+   hint:'If Save does not work, press and hold the certificate to save it.',save:'Save',share:'Share',home:'Back to start',foot:'Green Lab, KAML',
+   sndOff:'Turn sound off',sndOn:'Turn sound on',certAlt:'Your certificate',locale:'en-GB',
+   res:[['Lab Inspector Expert!','Outstanding. Your lab is in green hands.'],['Great job!','You know how to make a lab greener.'],['Good effort!','A few more green habits and you are there.'],['Keep learning!','Every green step counts. Try again.']]},
+ ar:{docHead:'فحص المختبر الأخضر',h1:'تحدّي <em class="sweep">مفتّش المختبر</em>',lead:'اكتشف الأخطاء العشرة. صحّحها. واجعل مختبرك أكثر استدامة!',
+   c1:'10 أسئلة',c2:'حوالي دقيقتين',c3:'شهادتك في النهاية',start:'ابدأ الفحص',next:'السؤال التالي',seeResult:'اعرض نتيجتي',
+   qOf:n=>`السؤال <b>${n}</b> من ${N}`,tf:'صح أم خطأ',mc:'اختر إجابة واحدة',T:'صح',F:'خطأ',keys:'أبج',answerIs:'الإجابة الصحيحة: ',
+   correct:'صحيح',missed:'خطأ',inspected:'تم الفحص',yourScore:'نتيجتك',nameLabel:'اسمك كما سيظهر في الشهادة',namePh:'مثال: سارة العلي…',
+   getCert:'احصل على شهادتي',making:'جارٍ تجهيز شهادتك…',again:'حاول مرة أخرى',certTitle:'شهادتك',certSub:'احفظها في هاتفك أو أرسلها لمن تريد.',
+   hint:'إذا لم يعمل زر الحفظ، اضغط مطوّلًا على الشهادة لحفظها.',save:'حفظ',share:'مشاركة',home:'العودة إلى البداية',foot:'المختبر الأخضر، KAML',
+   sndOff:'إيقاف الصوت',sndOn:'تشغيل الصوت',certAlt:'شهادتك',locale:'ar-KW',
+   res:[['خبير في فحص المختبر!','أداء رائع. مختبرك في أيدٍ خضراء.'],['عمل رائع!','تعرف كيف تجعل المختبر أكثر استدامة.'],['محاولة جيدة!','بعض العادات الخضراء الإضافية وتصل.'],['واصل التعلّم!','كل خطوة خضراء لها أثر. حاول مرة أخرى.']]}
+};
+let LANG='en';
+try{if(localStorage.getItem('kaml-inspector-lang')==='ar')LANG='ar'}catch(e){}
+const t=k=>TX[LANG][k];
+let round=[],marks=[],chosen=[],i=0,score=0,certURL='',screen='sStart';
 
 /* ---------- feel: sound, ink, confetti (scaled by importance) ---------- */
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let AC=null,soundOn=true;
 try{soundOn=localStorage.getItem('kaml-inspector-sound')!=='off'}catch(e){}
 const sndBtn=$('#sndBtn');
-function syncSnd(){sndBtn.setAttribute('aria-pressed',String(soundOn));sndBtn.setAttribute('aria-label',soundOn?'Turn sound off':'Turn sound on')}
-syncSnd();
+function syncSnd(){sndBtn.setAttribute('aria-pressed',String(soundOn));sndBtn.setAttribute('aria-label',soundOn?t('sndOff'):t('sndOn'))}
 sndBtn.onclick=()=>{soundOn=!soundOn;syncSnd();try{localStorage.setItem('kaml-inspector-sound',soundOn?'on':'off')}catch(e){};if(soundOn){audio();sfx.tick()}};
 function audio(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(AC&&AC.state==='suspended')AC.resume();return AC}
 function tone(f,dur,{type='sine',vol=.2,at=0,to=null}={}){
-  const a=audio();if(!a||!soundOn)return;const t=a.currentTime+at,o=a.createOscillator(),g=a.createGain();
-  o.type=type;o.frequency.setValueAtTime(f,t);if(to)o.frequency.exponentialRampToValueAtTime(to,t+dur);
-  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+dur);
-  o.connect(g).connect(a.destination);o.start(t);o.stop(t+dur+.02);
+  const a=audio();if(!a||!soundOn)return;const t0=a.currentTime+at,o=a.createOscillator(),g=a.createGain();
+  o.type=type;o.frequency.setValueAtTime(f,t0);if(to)o.frequency.exponentialRampToValueAtTime(to,t0+dur);
+  g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(vol,t0+.008);g.gain.exponentialRampToValueAtTime(.0001,t0+dur);
+  o.connect(g).connect(a.destination);o.start(t0);o.stop(t0+dur+.02);
 }
 function noise(dur,vol,at=0){
-  const a=audio();if(!a||!soundOn)return;const t=a.currentTime+at,len=Math.floor(a.sampleRate*dur),b=a.createBuffer(1,len,a.sampleRate),d=b.getChannelData(0);
+  const a=audio();if(!a||!soundOn)return;const t0=a.currentTime+at,len=Math.floor(a.sampleRate*dur),b=a.createBuffer(1,len,a.sampleRate),d=b.getChannelData(0);
   for(let k=0;k<len;k++)d[k]=(Math.random()*2-1)*Math.pow(1-k/len,3);
   const s=a.createBufferSource(),f=a.createBiquadFilter(),g=a.createGain();f.type='lowpass';f.frequency.value=900;g.gain.value=vol;
-  s.buffer=b;s.connect(f).connect(g).connect(a.destination);s.start(t);
+  s.buffer=b;s.connect(f).connect(g).connect(a.destination);s.start(t0);
 }
 const sfx={
   tick(){tone(1200,.04,{type:'triangle',vol:.06})},
@@ -344,9 +393,33 @@ function confetti(amount){
     if(el<2800)requestAnimationFrame(step);else g.clearRect(0,0,innerWidth,innerHeight);
   })(t0);
 }
-document.addEventListener('click',e=>{if(e.target.closest('.btn'))sfx.tick()});
+document.addEventListener('click',e=>{if(e.target.closest('.btn,.lang'))sfx.tick()});
+
+/* ---------- language ---------- */
+function loadArabicFont(){
+  if(document.getElementById('arFont'))return;
+  const l=document.createElement('link');l.id='arFont';l.rel='stylesheet';
+  l.href='https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;700;800&display=swap';document.head.appendChild(l);
+}
+function applyLang(){
+  const h=document.documentElement;h.lang=LANG;h.dir=LANG==='ar'?'rtl':'ltr';
+  if(LANG==='ar')loadArabicFont();
+  document.querySelectorAll('[data-t]').forEach(el=>{el.innerHTML=t(el.dataset.t)});
+  document.querySelectorAll('[data-tp]').forEach(el=>{el.placeholder=t(el.dataset.tp)});
+  const lb=$('#langBtn');
+  if(LANG==='ar'){lb.textContent='English';lb.lang='en';lb.setAttribute('aria-label','Switch to English')}
+  else{lb.textContent='عربي';lb.lang='ar';lb.setAttribute('aria-label','التبديل إلى العربية')}
+  $('#today').textContent=new Date().toLocaleDateString(t('locale'),{day:'numeric',month:'short',year:'numeric'});
+  $('#certBtn').textContent=t('getCert');$('#certImg').alt=t('certAlt');
+  $('#h1sweep')||0;const em=$('h1 em');if(em&&screen!=='sStart')em.style.backgroundSize='100% 36%';
+  syncSnd();
+  if(screen==='sQuiz'&&round.length){render();if(chosen[i]!==undefined)paint(chosen[i],false)}
+  if(screen==='sResult'){fillResultText();$('#rStamp').textContent=t('inspected')}
+}
+$('#langBtn').onclick=()=>{LANG=LANG==='ar'?'en':'ar';try{localStorage.setItem('kaml-inspector-lang',LANG)}catch(e){};applyLang()};
 
 function show(id){
+  screen=id;
   document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));
   document.querySelectorAll('[data-for]').forEach(el=>el.hidden=el.dataset.for!==id);
   if(id==='sQuiz')$('#nextBtn').hidden=true;
@@ -354,43 +427,50 @@ function show(id){
 }
 function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
 function drawMarks(el,cur,popAt=-1){el.innerHTML=Array.from({length:N},(_,k)=>{const m=marks[k];return `<i class="${m===true?'ok':m===false?'no':k===cur?'now':''}${k===popAt?' pop':''}">${m===true?'✓':m===false?'✕':''}</i>`}).join('')}
-function stamp(el,ok,text){el.className='stamp '+(ok?'ok':'no');el.textContent=text;void el.offsetWidth;el.classList.add('go')}
+function stamp(el,ok,text,animate=true){el.className='stamp '+(ok?'ok':'no');el.textContent=text;if(animate){void el.offsetWidth;el.classList.add('go')}else el.classList.add('shown')}
 
 function start(){
   // keep true/false first, then multiple choice, as in the PDF; pick 10 of the 12 at random
   const pick=shuffle(BANK.map((_,k)=>k)).slice(0,N).sort((x,y)=>x-y);
-  round=pick.map(k=>BANK[k]);marks=[];i=0;score=0;show('sQuiz');render();
+  round=pick.map(k=>BANK[k]);marks=[];chosen=[];i=0;score=0;show('sQuiz');render();
   if(!window._bg){window._bg=loadImg(CERTBG);window._bg.catch(()=>{window._bg=null})}
 }
+const qText=q=>LANG==='ar'?q.qa:q.q;
+const qOpts=q=>LANG==='ar'?q.oa:q.o;
 function render(){
   const q=round[i];
-  drawMarks($('#qMarks'),i);
-  $('#qCount').innerHTML='Question <b>'+(i+1)+'</b> of '+N;
-  $('#qType').textContent=q.t==='tf'?'True or false':'Choose one';
-  $('#qText').textContent=q.q;
+  drawMarks($('#qMarks'),chosen[i]===undefined?i:-1);
+  $('#qCount').innerHTML=t('qOf')(i+1);
+  $('#qType').textContent=q.t==='tf'?t('tf'):t('mc');
+  $('#qText').textContent=qText(q);
   const box=$('#qOpts');box.className='opts'+(q.t==='tf'?' tf':'');box.innerHTML='';
-  const opts=q.t==='tf'?[['True',true,'✓'],['False',false,'✕']]:q.o.map((o,k)=>[o,k,'ABC'[k]]);
+  const opts=q.t==='tf'?[[t('T'),true,'✓'],[t('F'),false,'✕']]:qOpts(q).map((o,k)=>[o,k,t('keys')[k]]);
   opts.forEach(([label,val,key])=>{
     const b=document.createElement('button');b.type='button';b.className='opt'+(q.t==='tf'?' tf':'');
     b.innerHTML='<span class="k" aria-hidden="true"></span><span></span>';
     b.firstChild.textContent=key;b.lastChild.textContent=label;b.dataset.v=String(val);
-    b.onclick=()=>answer(b,val);box.appendChild(b);
+    b.onclick=()=>answer(val);box.appendChild(b);
   });
   $('#qFb').className='feedback';$('#qFb').textContent='';$('#qStamp').className='stamp';$('#nextBtn').hidden=true;
 }
-function answer(btn,val){
+// visual state of an answered question (also used when the language changes mid-question)
+function paint(val,animate){
   const q=round[i],ok=val===q.a,box=$('#qOpts');box.classList.add('done');
-  [...box.children].forEach(b=>{const right=b.dataset.v===String(q.a);if(right)b.classList.add('right');else if(b!==btn)b.classList.add('dim')});
-  if(!ok)btn.classList.add('wrong');else score++;
+  [...box.children].forEach(b=>{const right=b.dataset.v===String(q.a);if(right)b.classList.add('right');else if(b.dataset.v===String(val))b.classList.add('wrong');else b.classList.add('dim')});
+  const correct=q.t==='tf'?(q.a?t('T'):t('F')):t('keys')[q.a]+'. '+qOpts(q)[q.a];
+  const fb=$('#qFb');fb.className='feedback '+(ok?'ok':'no');
+  if(ok)fb.textContent='';else{fb.innerHTML='';fb.append(t('answerIs'));const b=document.createElement('b');b.textContent=correct;fb.append(b)}
+  stamp($('#qStamp'),ok,ok?t('correct'):t('missed'),animate);
+  const nb=$('#nextBtn');nb.hidden=false;nb.textContent=i===N-1?t('seeResult'):t('next');
+}
+function answer(val){
+  if(chosen[i]!==undefined)return;
+  const q=round[i],ok=val===q.a;chosen[i]=val;if(ok)score++;
   marks[i]=ok;drawMarks($('#qMarks'),-1,i);
   ok?sfx.ok():sfx.no();
-  const correct=q.t==='tf'?(q.a?'True':'False'):'ABC'[q.a]+'. '+q.o[q.a];
-  const fb=$('#qFb');fb.className='feedback '+(ok?'ok':'no');
-  if(ok)fb.textContent='';else{fb.innerHTML='The answer is <b></b>';fb.lastChild.textContent=correct}
-  stamp($('#qStamp'),ok,ok?'Correct':'Missed');
+  paint(val,true);
   setTimeout(()=>ink($('#qStamp'),ok?'#187a41':'#cf2e2e'),170);
   const p=$('#paper');p.classList.remove('shake');void p.offsetWidth;p.classList.add('shake');
-  const nb=$('#nextBtn');nb.hidden=false;nb.textContent=i===N-1?'See my result':'Next question';
   try{navigator.vibrate&&navigator.vibrate(ok?25:[30,40,30])}catch(e){}
 }
 let flipping=false;
@@ -398,24 +478,30 @@ $('#nextBtn').onclick=async()=>{
   if(flipping)return;
   if(i>=N-1)return result();
   i++;sfx.flip();
-  const s=$('#sQuiz');
+  const s=$('#sQuiz'),dx=LANG==='ar'?-1:1;
   if(!RM&&s.animate){flipping=true;
-    await s.animate([{transform:'none',opacity:1},{transform:'translateX(-40px) rotate(-1.5deg)',opacity:0}],{duration:150,easing:'ease-in'}).finished;
-    render();
-    s.animate([{transform:'translateX(40px) rotate(1.5deg)',opacity:0},{transform:'none',opacity:1}],{duration:260,easing:'cubic-bezier(.2,1,.3,1)'});
-    flipping=false;
+    // timer, not animation.finished: a paused/background tab must never freeze the game
+    s.animate([{transform:'none',opacity:1},{transform:`translateX(${-40*dx}px) rotate(${-1.5*dx}deg)`,opacity:0}],{duration:150,easing:'ease-in',fill:'forwards'});
+    setTimeout(()=>{
+      try{render();s.getAnimations().forEach(a=>a.cancel());
+        s.animate([{transform:`translateX(${40*dx}px) rotate(${1.5*dx}deg)`,opacity:0},{transform:'none',opacity:1}],{duration:260,easing:'cubic-bezier(.2,1,.3,1)'});}
+      finally{flipping=false}
+    },150);
   }else render();
 };
+function fillResultText(){
+  const r=t('res'),k=score>=9?0:score>=7?1:score>=5?2:3;
+  $('#rTitle').textContent=r[k][0];$('#rText').textContent=r[k][1];
+}
 function result(){
   $('#rScore').textContent='0';$('#rStamp').className='stamp ok';
-  const t=score>=9?['Lab Inspector Expert!','Outstanding. Your lab is in green hands.']:score>=7?['Great job!','You know how to make a lab greener.']:score>=5?['Good effort!','A few more green habits and you are there.']:['Keep learning!','Every green step counts. Try again.'];
-  $('#rTitle').textContent=t[0];$('#rText').textContent=t[1];
+  fillResultText();
   drawMarks($('#rMarks'),-1);
   show('sResult');
   // count up, then stamp, then (scaled to the score) fanfare + confetti
   const big=$('.big'),dur=RM?0:120;let n=0;
   const tick=()=>{if(n<score){n++;$('#rScore').textContent=n;big.classList.remove('count');void big.offsetWidth;big.classList.add('count');tone(440+n*60,.05,{type:'triangle',vol:.07});setTimeout(tick,dur)}else setTimeout(land,250)};
-  const land=()=>{stamp($('#rStamp'),true,'Inspected');sfx.thud();setTimeout(()=>{ink($('#rStamp'),'#187a41');if(score>=5){sfx.fanfare();confetti(score>=8?160:90)}},170)};
+  const land=()=>{stamp($('#rStamp'),true,t('inspected'));sfx.thud();setTimeout(()=>{ink($('#rStamp'),'#187a41');if(score>=5){sfx.fanfare();confetti(score>=8?160:90)}},170)};
   setTimeout(tick,350);
 }
 try{const saved=localStorage.getItem('kaml-inspector-name');if(saved){$('#name').value=saved;$('#certBtn').disabled=false}}catch(e){}
@@ -424,8 +510,8 @@ $('#name').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.tri
 $('#certBtn').onclick=async()=>{
   const b=$('#certBtn'),nm=$('#name').value.trim();if(b.disabled)return;
   try{localStorage.setItem('kaml-inspector-name',nm)}catch(e){}
-  b.disabled=true;b.textContent='Making your certificate…';
-  try{certURL=await drawCert(nm,score)}finally{b.disabled=false;b.textContent='Get my certificate'}$('#certImg').src=certURL;show('sCert');const w=$('#certWrap');w.classList.remove('reveal');void w.offsetWidth;w.classList.add('reveal');sfx.fanfare();setTimeout(()=>confetti(120),250)};
+  b.disabled=true;b.textContent=t('making');
+  try{certURL=await drawCert(nm,score)}finally{b.disabled=false;b.textContent=t('getCert')}$('#certImg').src=certURL;show('sCert');const w=$('#certWrap');w.classList.remove('reveal');void w.offsetWidth;w.classList.add('reveal');sfx.fanfare();setTimeout(()=>confetti(120),250)};
 $('#againBtn').onclick=start;$('#startBtn').onclick=start;$('#homeBtn').onclick=()=>show('sStart');
 $('#saveBtn').onclick=()=>{const a=document.createElement('a');a.href=certURL;a.download='Sustainability-Champion-Certificate.jpg';document.body.appendChild(a);a.click();a.remove()};
 $('#shareBtn').onclick=async()=>{
@@ -434,15 +520,16 @@ $('#shareBtn').onclick=async()=>{
   $('#saveBtn').click();
 };
 if(!navigator.share)$('#shareBtn').hidden=true;
+applyLang();
 
 /* ---------- certificate (drawn on a canvas, saved as PNG) ---------- */
 function loadImg(src){return new Promise((r,j)=>{const im=new Image();im.onload=()=>r(im);im.onerror=j;im.src=src})}
 async function drawCert(name,sc){
   // background: KAML "Sustainability Champion" certificate (pill text erased so we can write the name in)
-  const D='"Bricolage Grotesque", Arial';
-  try{await Promise.all([document.fonts.load('800 40px "Bricolage Grotesque"'),document.fonts.load('600 20px "Bricolage Grotesque"')])}catch(e){}
+  const D='"Bricolage Grotesque", "Alexandria", Arial';
+  try{await Promise.all([document.fonts.load('800 40px "Bricolage Grotesque"'),document.fonts.load('600 20px "Bricolage Grotesque"'),LANG==='ar'||/[\u0600-\u06FF]/.test(name)?(loadArabicFont(),document.fonts.load('800 40px Alexandria','سارة')):0])}catch(e){}
   const bg=await (window._bg||loadImg(CERTBG)),W=bg.naturalWidth,H=bg.naturalHeight,c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');
-  g.drawImage(bg,0,0);g.textAlign='center';g.fillStyle='#0e3b23';
+  g.drawImage(bg,0,0);g.direction='ltr';g.textAlign='center';g.fillStyle='#0e3b23';
   const fit=(txt,font,size,max,min)=>{let f=size;g.font=font(f);while(g.measureText(txt).width>max&&f>min){f-=2;g.font=font(f)}return f};
   // full name on the line
   fit(name,f=>`800 ${f}px ${D}`,74,790,34);g.fillText(name,W/2,546);
